@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jq-demo-12</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    
+    <div class="container">
+      <div class="col-lg-3">
+        <br>
+        <ul class="list-group">
+        <li class="list-group-item active">Red</li>
+        <li class="list-group-item">Green</li>
+        <li class="list-group-item">Blue</li>
+        <li class="list-group-item">Purple</li>
+        <li class="list-group-item">Orange</li>
+        <li class="list-group-item">Black</li>
+      </ul>
+      </div>
+      
+      <div  class="col-lg-9">
+        <div class="content">
+          <div id="bg" class="red">
+            <ul id="list-content">
+            <li class="show">This is read background</li>
+            <li>This is Green background</li>
+            <li>This is Blue background</li>
+            <li>This is Purple background</li>
+            <li>This is Orange background</li>
+            <li>This is Black background</li>
+          </div>
+        </div>
+        </div>
+      
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        // image array
+var image=["red","green","blue","purple","orange", "black"];
+
+$(".list-group li").hover(function(){
+  var value=  $(this).index();
+  hoverContent(value);
+});
+function hoverContent(value){
+  $("#list-content li").removeClass('show');
+  $("#list-content li:nth-child("+value+")").addClass("show");
+  $("#bg").removeClass();
+  $("#bg").addClass(image[value]);
+}
+    </script>
+</body>
+</html>
